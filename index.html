@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Virtual Pet Simulator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Virtual Pet Simulator – Internship Project</h1>
+<p><b>Developed by Raxit Amipara</b></p>
+
+<div id="pet">🐼</div>
+
+
+<div class="stats">
+  <div>Hunger <progress id="hunger" value="50" max="100"></progress></div>
+  <div>Happiness <progress id="happiness" value="50" max="100"></progress></div>
+  <div>Energy <progress id="energy" value="50" max="100"></progress></div>
+</div>
+
+<div class="buttons">
+  <button onclick="feed()">Feed</button>
+  <button onclick="play()">Play</button>
+  <button onclick="sleepPet()">Sleep</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
