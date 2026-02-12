@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Virtual Pet Simulator</title>
-<link rel="stylesheet" href="style.css">
+  <title>Virtual Pet Simulator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -10,7 +11,7 @@
 <p><b>Developed by Raxit Amipara</b></p>
 
 <div id="pet">🐼</div>
-
+<p id="mood">Your pet is neutral 😐</p>
 
 <div class="stats">
   <div>Hunger <progress id="hunger" value="50" max="100"></progress></div>
@@ -19,9 +20,9 @@
 </div>
 
 <div class="buttons">
-  <button onclick="feed()">Feed</button>
-  <button onclick="play()">Play</button>
-  <button onclick="sleepPet()">Sleep</button>
+  <button id="feedBtn">Feed 🍎</button>
+  <button id="playBtn">Play 🎾</button>
+  <button id="sleepBtn">Sleep 😴</button>
 </div>
 
 <script src="script.js"></script>
