@@ -1,26 +1,58 @@
-let hunger=50,happiness=50,energy=50;
+document.addEventListener("DOMContentLoaded", function () {
 
-function update(){
- document.getElementById("hunger").value=hunger;
- document.getElementById("happiness").value=happiness;
- document.getElementById("energy").value=energy;
+  let hunger = 50;
+  let happiness = 50;
+  let energy = 50;
 
- let pet=document.getElementById("pet");
- pet.className="";
- if(hunger>70) pet.classList.add("sad");
- else if(energy<30) pet.classList.add("sleep");
- else pet.classList.add("happy");
-}
+  const hungerBar = document.getElementById("hunger");
+  const happinessBar = document.getElementById("happiness");
+  const energyBar = document.getElementById("energy");
 
-function feed(){ hunger=Math.max(0,hunger-15); happiness+=5; update(); }
-function play(){ happiness=Math.min(100,happiness+15); energy-=10; hunger+=5; update(); }
-function sleepPet(){ energy=Math.min(100,energy+20); update(); }
+  const pet = document.getElementById("pet");
+  const mood = document.getElementById("mood");
 
-setInterval(()=>{
- hunger=Math.min(100,hunger+2);
- energy=Math.max(0,energy-2);
- happiness=Math.max(0,happiness-1);
- update();
-},3000);
+  const feedBtn = document.getElementById("feedBtn");
+  const playBtn = document.getElementById("playBtn");
+  const sleepBtn = document.getElementById("sleepBtn");
 
-update();
+  function updateBars() {
+    hungerBar.value = hunger;
+    happinessBar.value = happiness;
+    energyBar.value = energy;
+  }
+
+  function animatePet() {
+    pet.style.transform = "scale(1.2)";
+    setTimeout(function () {
+      pet.style.transform = "scale(1)";
+    }, 200);
+  }
+
+  feedBtn.addEventListener("click", function () {
+    hunger = Math.min(hunger + 15, 100);
+    happiness = Math.min(happiness + 5, 100);
+    pet.textContent = "😋";
+    mood.textContent = "Yummy! Pet is happy 😋";
+    animatePet();
+    updateBars();
+  });
+
+  playBtn.addEventListener("click", function () {
+    happiness = Math.min(happiness + 15, 100);
+    energy = Math.max(energy - 10, 0);
+    pet.textContent = "😄";
+    mood.textContent = "That was fun! 😄";
+    animatePet();
+    updateBars();
+  });
+
+  sleepBtn.addEventListener("click", function () {
+    energy = Math.min(energy + 20, 100);
+    hunger = Math.max(hunger - 10, 0);
+    pet.textContent = "😴";
+    mood.textContent = "Pet is sleeping peacefully 😴";
+    animatePet();
+    updateBars();
+  });
+
+});
